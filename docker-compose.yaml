@@ -1,0 +1,35 @@
+version: '3.3'
+
+services:
+  frontend:
+    image: nice/frontend:1.0.0
+    ports:
+      - "8080:80"
+
+  backend:
+    image: nice/backend:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_DB_USERNAME=${MONGOD_ADMIN_USER}
+      - MONGO_DB_PWD=${MONGOD_ADMIN_PASS}
+      - MONGODB_URI=mongodb://mongo:27017/yolo # Update to use service name as hostname
+    volumes:
+      - backend-data:/backend/app/data  # Mount a volume for backend data
+    depends_on:
+      - "mongo"
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+     - MONGO_INITDB_ROOT_USERNAME=${MONGOD_ADMIN_USER}
+     - MONGO_INITDB_ROOT_PASSWORD=${MONGOD_ADMIN_PASS}
+    volumes:
+      - mongodb-data:/data/db  # Mount a volume for MongoDB data
+
+volumes:
+  backend-data:
+  mongodb-data:
