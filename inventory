@@ -5,12 +5,11 @@ all:
         web01:
           ansible_host: 35.175.175.165
           ansible_user: ubuntu
-          ansible_ssh_private_key_file: /amnice/security/id_rsa
-        web02:
+          ansible_ssh_private_key_file: /home/amnice/dev06/yolo/.vagrant/machines/default/virtualbox/private_key
           ansible_host: 54.234.151.67
           ansible_user: ubuntu
-          ansible_ssh_private_key_file: /amnice/security/id_rsa
+          ansible_ssh_private_key_file: /home/amnice/dev06/yolo/.vagrant/machines/default/virtualbox/private_key
 
   vars:
     ansible_user: ubuntu
-    ansible_ssh_private_key_file: /amnice/security/id_rsa
+    ansible_ssh_private_key_file: /home/amnice/dev06/yolo/.vagrant/machines/default/virtualbox/private_key
