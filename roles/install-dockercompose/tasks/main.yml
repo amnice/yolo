@@ -1,2 +1,13 @@
 ---
 # tasks file for roles/install-dockercompose
+
+- name: Install docker-compose from official GitHub repo
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/v2.26.0/docker-compose-linux-x86_64"
+    dest: /usr/local/bin/docker-compose
+    mode: '0755'
+
+- name: Execute docker-compose
+  file:
+    path: /usr/local/bin/docker-compose
+    mode: '0755'
