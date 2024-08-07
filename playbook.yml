@@ -1,0 +1,29 @@
+- name: Yolo Setup
+  hosts: webservers
+  become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    app_source: "https://github.com/amnice/yolo.git"
+    
+  tasks:
+  - name: Include frontend role
+    include_role:
+      name: frontend
+    tags: [frontend]
+
+  - name: Include backend role
+    include_role:
+      name: backend
+    tags: [backend]
+
+  - name: Include database role
+    include_role:
+      name: database
+    tags: [mongod]
+
+  roles:
+      - test-connectivity 
+      - clone-repo
+      - install-docker 
+      - install-dockercompose
+      - run-docker-compose
