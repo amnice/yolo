@@ -1,0 +1,6 @@
+yolos1 ansible_host=35.175.175.165
+yolos2 ansible_host=54.234.151.67
+default ansible_host=127.0.0.1 
+ansible_port=2222 
+ansible_user=vagrant 
+ansible_private_key_file=/home/amnice/dev06/yolo/.vagrant/machines/default/virtualbox/private_key
