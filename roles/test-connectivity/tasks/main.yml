@@ -1,2 +1,4 @@
 ---
 # tasks file for roles/test-connectivity
+- name: Test connectivity
+  ping:
